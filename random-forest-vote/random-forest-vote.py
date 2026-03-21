@@ -9,7 +9,5 @@ def random_forest_vote(predictions):
     m,n=predictions.shape
     ans=[]
     for i in range(n):
-        a=predictions[:,i]
-        b,c=np.unique(a,return_counts=True)
-        ans.append(b[np.argmax(c)])
+        ans.append(np.argmax(np.bincount(predictions[:,i])))
     return ans
